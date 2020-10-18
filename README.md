@@ -12,3 +12,6 @@
 ```shell
 pip install opencv-python # that is it. No PIL and libboost-python
 ```
+### Something might be interesting
+* I was searching for a full-proof solution to decode raw h264/H264/H.264 stream in terms of frame. In Tello_Video.ipynb, I demonstrated a solution by setting up a tcp server. Yes, however we get the raw stream, we can feed it to the tcp server. OpenCV will capture stream from tcp server and do the real-time decoding frame by frame.
+* When I worked with raspberry pi, its camera utility can set up a tcp sever then OpenCV can capture the h264 stream directly. But Tello's camera is not programmable! I have to gather h264 stram from Tello via a udp server and then deal with it. 
