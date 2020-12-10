@@ -14,6 +14,7 @@
 pip install opencv-python Flask# That is it. No PIL and libboost-python
 ```
 ### Something might be interesting
+* Tello --[h264-encoded chunks of frame]--> UDP server on my PC --[h264-encoded frame]--> TCP server on my PC --[h264-encoded stream]--> OpenCV --[image]--> Flask
 * We cannot get a video stream from Tello so we cannot use OpenCV directly. 
   * When I worked with raspberry pi, its camera utility can set up a tcp server then OpenCV can capture the h264 stream from it directly. But Tello is different because tello is not going to setup a streaming server (and it is not programmable to do that). 
 * I was searching for a full-proof solution to decode locally buffered h264/H264/H.264 stream and get the image frame by frame. 
