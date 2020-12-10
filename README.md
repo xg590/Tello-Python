@@ -14,9 +14,9 @@
 pip install opencv-python Flask# That is it. No PIL and libboost-python
 ```
 ### Something might be interesting
-* When I worked with raspberry pi, its camera utility can set up a tcp sever then OpenCV can capture the h264 stream directly. But Tello is different because tello is not a streaming server. Tello is client who send out chucks of video stream. It is up to us to gather h264 stream from Tello via a udp server on our PC and then deal with it. 
-  * We don't get a video stream from Tello.
-  * What we get from Tello is chunks of h264-encoded video stream. We have put chucks togather to form a stream in buffer and decode it on the fly. 
+* We cannot get a video stream from Tello so we cannot use OpenCV directly. 
+  * When I worked with raspberry pi, its camera utility can set up a tcp server then OpenCV can capture the h264 stream from it directly. But Tello is different because tello is not going to setup a streaming server (and it is not programmable to do that). 
 * I was searching for a full-proof solution to decode locally buffered h264/H264/H.264 stream and get the image frame by frame. 
+  * Tello is a client who sends out chunks of h264-encoded video stream to a udp server set up on my PC. It is up to me to collect those chunks and deal with it. 
   * I am familar with OpenCV but I don't know how to work with a locally buffered stream. 
   * In Tello_Video.ipynb, I demonstrated a solution by setting up a tcp server to <b>rebroadcast</b> the buffered stream. Yes, however we get the raw stream, we can feed it to a tcp server. OpenCV will capture the tcp stream and do the real-time decoding frame by frame.
