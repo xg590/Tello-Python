@@ -1,4 +1,20 @@
 ## Python 3 version of https://github.com/dji-sdk/Tello-Python
+### Usage
+* If you want keep your system python clean, try the virtual environment.
+```shell
+sudo apt install python3-venv
+python3 -m venv testTello
+source testTello/bin/activate
+```
+* Connect your machine to the Tello via WIFI
+* Run the code and fly Tello autonomously (it would take off, fly around and land on its own)
+```
+python3 fly_tello.py
+```
+* Install necessary libraries if you need image from Tello (opencv) and show it in your web browser (flask).
+```shell
+pip install opencv-python Flask # That is it. No other dependent libraries
+```  
 ### Fly_Tello.ipynb
 1. Commands are executed one by another, i.e., the former one will block the latter one.  
 2. A command will be retried several time if it fails. 
@@ -9,10 +25,6 @@
 * h264decoder is required by dji-sdk/Tello-Python but it sucks. I tried the installation without success. 
 * I came up a bizarre solution so opencv can decode the stream.  
 * Video frame is in jpeg format (yeah, computer vision).
-### Usage
-```shell
-pip install opencv-python Flask# That is it. No PIL and libboost-python
-```
 ### Something might be interesting
 * Tello --[h264-encoded chunks of frame]--> UDP server on my PC --[h264-encoded frame]--> TCP server on my PC --[h264-encoded stream]--> OpenCV --[image]--> Flask
 * We cannot get a video stream from Tello so we cannot use OpenCV directly. 
