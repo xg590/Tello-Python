@@ -15,6 +15,10 @@ python3 fly_tello.py
 ```shell
 pip install opencv-python Flask # That is it. No other dependent libraries
 ```  
+* Run the code and visit http://127.0.0.1:9999/stream.mjpg by using your browser (Keep refresh the page if you have problem)
+```shell
+python3 see_from_tello.py
+```
 ### Fly_Tello.ipynb
 1. Commands are executed one by another, i.e., the former one will block the latter one.  
 2. A command will be retried several time if it fails. 
